@@ -12,6 +12,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p class="lead">Operations-focused partner supporting founders and teams in cross-border and multilingual environments.</p>
     </header>
 
+    <figure class="about-visual">
+      <img src="/meetings.jpg" alt="Collaborative meeting and document exchange among professionals" width="800" height="533" />
+      <figcaption>Collaboration and coordination in practice</figcaption>
+    </figure>
+
     <div class="prose">
       <p>
         Fluent in Japanese, English, and Korean, Sam works across organizational operations,
@@ -63,6 +68,30 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       margin: 0.5rem 0 0;
       font-size: 1.1rem;
       color: var(--muted);
+    }
+
+    .about-visual {
+      margin: 1.5rem 0 2rem;
+      max-width: 420px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--line);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    .about-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      vertical-align: middle;
+    }
+
+    .about-visual figcaption {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: var(--surface);
+      border-top: 1px solid var(--line);
     }
 
     .prose {

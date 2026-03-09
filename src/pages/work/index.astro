@@ -7,27 +7,34 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   description="Project experience across music, digital platforms, events, environmental initiatives, and corporate production—1995–2009 and beyond."
   wide
 >
-  <article class="page-content">
+  <article class="page-content work-page">
     <header class="page-header">
       <h1>Work &amp; Background</h1>
       <p class="lead">Supporting and coordinating roles across cultural, creative, nonprofit, and corporate contexts.</p>
     </header>
 
-    <div class="prose intro">
-      <p>
-        Between 1995 and 2009, Sam was engaged in a wide range of independent, cross-border
-        projects across cultural, creative, nonprofit, and corporate contexts.
-      </p>
-      <p>
-        During this period, he primarily worked in supporting and coordinating roles, helping bridge
-        organizations, teams, and individuals operating across different countries, languages, and
-        institutional environments. His work consistently emphasized communication support, operational
-        coordination, and practical execution rather than public-facing leadership or advocacy.
-      </p>
-    </div>
+    <div class="work-body">
+      <div class="work-intro-block">
+        <div class="prose intro">
+          <p>
+            Between 1995 and 2009, Sam was engaged in a wide range of independent, cross-border
+            projects across cultural, creative, nonprofit, and corporate contexts.
+          </p>
+          <p>
+            During this period, he primarily worked in supporting and coordinating roles, helping bridge
+            organizations, teams, and individuals operating across different countries, languages, and
+            institutional environments. His work consistently emphasized communication support, operational
+            coordination, and practical execution rather than public-facing leadership or advocacy.
+          </p>
+        </div>
+        <figure class="work-visual">
+          <img src="/organizer.png" alt="Collaborative work: cross-border operations and multilingual localization" width="800" height="533" />
+          <figcaption>Cross-border operations &amp; multilingual coordination</figcaption>
+        </figure>
+      </div>
 
-    <h2 class="section-title">Project Themes</h2>
-    <div class="project-grid">
+      <h2 class="section-title">Project Themes</h2>
+      <div class="project-grid">
       <section class="project-card">
         <h3>Music &amp; Entertainment Project Support</h3>
         <p>
@@ -81,21 +88,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </section>
     </div>
 
-    <div class="prose closing">
+      <div class="prose closing">
       <p>
         Across these projects, Sam consistently worked in roles that required navigating complexity
         between organizations from different countries and sectors. This period shaped his approach
         to organizational operations and co-founder-style support in later years, emphasizing
         structure, execution, and continuity over visibility or personal attribution.
       </p>
-    </div>
+      </div>
 
-    <p class="note">
-      For updated professional information, please refer to LinkedIn.
-    </p>
+      <p class="note">
+        For updated professional information, please refer to LinkedIn.
+      </p>
+    </div>
   </article>
 
   <style>
+    .work-page {
+      max-width: 52rem;
+      margin: 0 auto;
+    }
+
     .page-header {
       margin-bottom: 2rem;
     }
@@ -114,8 +127,26 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       color: var(--muted);
     }
 
+    .work-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .work-intro-block {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem 2.5rem;
+      align-items: start;
+      margin-bottom: 2.5rem;
+    }
+
     .prose {
-      max-width: 60ch;
+      max-width: none;
+    }
+
+    .work-page .prose {
+      min-width: 0;
     }
 
     .prose p {
@@ -123,7 +154,33 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     }
 
     .intro {
-      margin-bottom: 2.5rem;
+      margin-bottom: 0;
+    }
+
+    .work-visual {
+      margin: 0;
+      width: 100%;
+      max-width: 320px;
+      flex-shrink: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--line);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    .work-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      vertical-align: middle;
+    }
+
+    .work-visual figcaption {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: var(--surface);
+      border-top: 1px solid var(--line);
     }
 
     .section-title {
@@ -132,6 +189,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       color: var(--muted);
       letter-spacing: 0.02em;
       margin: 0 0 1.25rem;
+      padding-top: 0.25rem;
     }
 
     .project-grid {
@@ -146,6 +204,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 1.35rem;
+      min-height: 0;
     }
 
     .project-card h3 {
@@ -153,17 +212,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       font-weight: 600;
       margin: 0 0 0.5rem;
       color: var(--text);
+      line-height: 1.35;
     }
 
     .project-card p {
       margin: 0;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.6;
     }
 
     .closing {
       margin-bottom: 1.5rem;
+      max-width: 60ch;
+    }
+
+    .closing p:last-child {
+      margin-bottom: 0;
     }
 
     .note {
@@ -172,6 +237,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     }
 
     @media (max-width: 720px) {
+      .work-intro-block {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .work-visual {
+        max-width: 100%;
+      }
+
       .project-grid {
         grid-template-columns: 1fr;
       }

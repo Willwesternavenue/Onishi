@@ -205,11 +205,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       overflow: hidden;
       background: var(--line);
       aspect-ratio: 4/3;
-      max-height: 400px;
-      box-shadow:
-        0 0 0 1px rgba(0, 0, 0, 0.04),
-        0 4px 6px -1px rgba(0, 0, 0, 0.06),
-        0 20px 40px -12px rgba(0, 0, 0, 0.12);
+      max-height: 300px;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
       transform: translate(0, 0);
     }
 
@@ -272,7 +269,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       }
 
       .hero-visual {
-        max-height: 280px;
+        max-height: 220px;
       }
 
       .hero-visual-wrap::after {
@@ -283,15 +280,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     /* Context strip: two new images */
     .context-strip {
-      margin-top: 4rem;
-      padding-top: 2rem;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
       border-top: 1px solid var(--line);
     }
 
     .context-grid {
       display: grid;
       grid-template-columns: 1.15fr 1fr;
-      gap: 1.25rem;
+      gap: 1rem;
     }
 
     .context-card {
@@ -300,17 +297,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       border-radius: var(--radius);
       overflow: hidden;
       background: var(--line);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
     }
 
     .context-card-inner {
       position: relative;
       aspect-ratio: 4/3;
+      max-height: 200px;
       overflow: hidden;
     }
 
     .context-card--wide .context-card-inner {
       aspect-ratio: 16/10;
+      max-height: 200px;
     }
 
     .context-card img {
@@ -333,10 +332,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       left: 0;
       right: 0;
       bottom: 0;
-      padding: 1rem 1.25rem;
-      background: linear-gradient(to top, rgba(28, 25, 23, 0.82), transparent);
+      padding: 0.5rem 0.85rem;
+      background: linear-gradient(to top, rgba(28, 25, 23, 0.75), transparent);
       color: #fafaf9;
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.02em;
     }
