@@ -4,12 +4,10 @@ import Nav from '../components/Nav.astro';
 interface Props {
   title: string;
   description?: string;
-  wide?: boolean;
 }
 
-const { title, description = 'Business and operations professional supporting founders and organizations in multilingual, cross-cultural environments.', wide = false } = Astro.props;
+const { title, description = 'Business and operations professional supporting founders and organizations in multilingual, cross-cultural environments.' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://samonishi.com').toString();
-const currentPath = (Astro.url.pathname.replace(/\/$/, '') || '/');
 ---
 
 <!doctype html>
@@ -29,8 +27,7 @@ const currentPath = (Astro.url.pathname.replace(/\/$/, '') || '/');
     <meta name="twitter:description" content={description} />
     <link rel="canonical" href={canonical} />
 
-    {currentPath === '/' && (
-      <script type="application/ld+json" set:html={JSON.stringify({
+    <script type="application/ld+json" set:html={JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: 'Sam Onishi',
@@ -38,28 +35,23 @@ const currentPath = (Astro.url.pathname.replace(/\/$/, '') || '/');
         jobTitle: 'Organizational Operations & Venture Support',
         knowsLanguage: ['Japanese', 'English', 'Korean']
       })} />
-    )}
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
     <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
       :root {
-        --bg: #fafaf9;
+        --bg: #f5f7f9;
         --surface: #ffffff;
-        --text: #1c1917;
-        --muted: #57534e;
-        --muted-light: #a8a29e;
-        --line: #e7e5e4;
-        --accent: #0d9488;
-        --accent-hover: #0f766e;
-        --accent-soft: #ccfbf1;
-        --maxw: 680px;
-        --maxw-wide: 960px;
-        --radius: 12px;
-        --font-sans: 'DM Sans', system-ui, sans-serif;
-        --font-serif: 'Instrument Serif', Georgia, serif;
+        --text: #2c3e50;
+        --muted: #5d6d7e;
+        --muted-light: #95a5a6;
+        --line: #d5dbdb;
+        --accent: #1f5e95;
+        --accent-hover: #154360;
+        --accent-soft: #e8f4fc;
+        --maxw: 720px;
+        --radius: 8px;
       }
 
       * {
@@ -68,12 +60,11 @@ const currentPath = (Astro.url.pathname.replace(/\/$/, '') || '/');
 
       body {
         margin: 0;
-        font-family: var(--font-sans);
+        font-family: Arial, Helvetica, sans-serif;
         font-size: 1rem;
-        line-height: 1.7;
+        line-height: 1.65;
         color: var(--text);
         background: var(--bg);
-        -webkit-font-smoothing: antialiased;
       }
 
       a {
@@ -97,7 +88,7 @@ const currentPath = (Astro.url.pathname.replace(/\/$/, '') || '/');
       }
 
       .nav {
-        width: min(100% - 2rem, var(--maxw-wide));
+        width: min(100% - 2rem, var(--maxw));
         margin-inline: auto;
         padding: 1rem 0;
         display: flex;
@@ -107,8 +98,8 @@ const currentPath = (Astro.url.pathname.replace(/\/$/, '') || '/');
       }
 
       .nav-logo {
-        font-family: var(--font-serif);
-        font-size: 1.35rem;
+        font-family: Georgia, serif;
+        font-size: 1.25rem;
         font-weight: 400;
         color: var(--text);
       }
@@ -144,11 +135,7 @@ const currentPath = (Astro.url.pathname.replace(/\/$/, '') || '/');
         flex: 1;
         width: min(100% - 2rem, var(--maxw));
         margin-inline: auto;
-        padding: 2.5rem 0 4rem;
-      }
-
-      .main-wide {
-        width: min(100% - 2rem, var(--maxw-wide));
+        padding: 1.5rem 0 3rem;
       }
 
       .footer-wrap {
@@ -158,7 +145,7 @@ const currentPath = (Astro.url.pathname.replace(/\/$/, '') || '/');
       }
 
       .footer {
-        width: min(100% - 2rem, var(--maxw-wide));
+        width: min(100% - 2rem, var(--maxw));
         margin-inline: auto;
         padding: 1.25rem 0;
         display: flex;
@@ -198,9 +185,9 @@ const currentPath = (Astro.url.pathname.replace(/\/$/, '') || '/');
   <body>
     <div class="layout">
       <header class="nav-wrap">
-        <Nav current={currentPath} />
+        <Nav />
       </header>
-      <main class={wide ? 'main-wide' : ''}>
+      <main>
         <slot />
       </main>
       <footer class="footer-wrap">

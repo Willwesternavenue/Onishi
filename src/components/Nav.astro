@@ -1,22 +1,17 @@
 ---
-const current = Astro.props.current ?? '';
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/about/', label: 'About' },
-  { href: '/work/', label: 'Work' },
-  { href: '/contact/', label: 'Contact' },
+  { href: '#top', label: 'Top' },
+  { href: '#about', label: 'About' },
+  { href: '#work', label: 'Work' },
+  { href: '#contact', label: 'Contact' },
 ];
 ---
 
 <nav class="nav" aria-label="Main">
-  <a class="nav-logo" href="/">Sam Onishi</a>
+  <a class="nav-logo" href="#top">Sam Onishi</a>
   <ul class="nav-links">
     {links.map(({ href, label }) => (
-      <li>
-        <a href={href} aria-current={(href === '/' ? current === '/' : current === href.replace(/\/$/, '')) ? 'page' : undefined}>
-          {label}
-        </a>
-      </li>
+      <li><a href={href}>{label}</a></li>
     ))}
   </ul>
 </nav>
