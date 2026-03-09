@@ -1,0 +1,214 @@
+---
+import Nav from '../components/Nav.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  wide?: boolean;
+}
+
+const { title, description = 'Business and operations professional supporting founders and organizations in multilingual, cross-cultural environments.', wide = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://samonishi.com').toString();
+const currentPath = (Astro.url.pathname.replace(/\/$/, '') || '/');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    {currentPath === '/' && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Sam Onishi',
+        url: 'https://samonishi.com',
+        jobTitle: 'Organizational Operations & Venture Support',
+        knowsLanguage: ['Japanese', 'English', 'Korean']
+      })} />
+    )}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+    <style is:global>
+      :root {
+        --bg: #fafaf9;
+        --surface: #ffffff;
+        --text: #1c1917;
+        --muted: #57534e;
+        --muted-light: #a8a29e;
+        --line: #e7e5e4;
+        --accent: #0d9488;
+        --accent-hover: #0f766e;
+        --accent-soft: #ccfbf1;
+        --maxw: 680px;
+        --maxw-wide: 960px;
+        --radius: 12px;
+        --font-sans: 'DM Sans', system-ui, sans-serif;
+        --font-serif: 'Instrument Serif', Georgia, serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--text);
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
+      a:hover {
+        color: var(--accent-hover);
+      }
+
+      .layout {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .nav-wrap {
+        border-bottom: 1px solid var(--line);
+        background: var(--surface);
+      }
+
+      .nav {
+        width: min(100% - 2rem, var(--maxw-wide));
+        margin-inline: auto;
+        padding: 1rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+      }
+
+      .nav-logo {
+        font-family: var(--font-serif);
+        font-size: 1.35rem;
+        font-weight: 400;
+        color: var(--text);
+      }
+
+      .nav-logo:hover {
+        color: var(--text);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.75rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-links a {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--muted);
+      }
+
+      .nav-links a:hover,
+      .nav-links a[aria-current="page"] {
+        color: var(--text);
+      }
+
+      .nav-links a[aria-current="page"] {
+        font-weight: 600;
+      }
+
+      main {
+        flex: 1;
+        width: min(100% - 2rem, var(--maxw));
+        margin-inline: auto;
+        padding: 2.5rem 0 4rem;
+      }
+
+      .main-wide {
+        width: min(100% - 2rem, var(--maxw-wide));
+      }
+
+      .footer-wrap {
+        border-top: 1px solid var(--line);
+        background: var(--surface);
+        margin-top: auto;
+      }
+
+      .footer {
+        width: min(100% - 2rem, var(--maxw-wide));
+        margin-inline: auto;
+        padding: 1.25rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+
+      .footer a {
+        color: var(--muted);
+      }
+
+      .footer a:hover {
+        color: var(--text);
+      }
+
+      @media (max-width: 640px) {
+        .nav {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 0.875rem 0;
+        }
+
+        .nav-links {
+          gap: 1.25rem;
+        }
+
+        main {
+          padding: 1.5rem 0 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <header class="nav-wrap">
+        <Nav current={currentPath} />
+      </header>
+      <main class={wide ? 'main-wide' : ''}>
+        <slot />
+      </main>
+      <footer class="footer-wrap">
+        <div class="footer">
+          <span>&copy; {new Date().getFullYear()} Sam Onishi</span>
+          <a href="mailto:contact@samonishi.com">contact@samonishi.com</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

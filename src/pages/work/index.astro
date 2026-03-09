@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Work & Background | Sam Onishi"
+  description="Project experience across music, digital platforms, events, environmental initiatives, and corporate production—1995–2009 and beyond."
+  wide
+>
+  <article class="page-content">
+    <header class="page-header">
+      <h1>Work &amp; Background</h1>
+      <p class="lead">Supporting and coordinating roles across cultural, creative, nonprofit, and corporate contexts.</p>
+    </header>
+
+    <div class="prose intro">
+      <p>
+        Between 1995 and 2009, Sam was engaged in a wide range of independent, cross-border
+        projects across cultural, creative, nonprofit, and corporate contexts.
+      </p>
+      <p>
+        During this period, he primarily worked in supporting and coordinating roles, helping bridge
+        organizations, teams, and individuals operating across different countries, languages, and
+        institutional environments. His work consistently emphasized communication support, operational
+        coordination, and practical execution rather than public-facing leadership or advocacy.
+      </p>
+    </div>
+
+    <h2 class="section-title">Project Themes</h2>
+    <div class="project-grid">
+      <section class="project-card">
+        <h3>Music &amp; Entertainment Project Support</h3>
+        <p>
+          Sam supported early-stage music and entertainment initiatives, assisting with group formation,
+          coordination among creative teams, and operational support in live performance settings.
+          His role often involved working behind the scenes to help align expectations and workflows
+          between organizations and individuals from different cultural and organizational backgrounds.
+        </p>
+      </section>
+
+      <section class="project-card">
+        <h3>Digital &amp; Platform Support for International Organizations</h3>
+        <p>
+          He contributed to the setup and management of websites and online platforms for international
+          and nonprofit organizations, supporting multilingual content organization and cross-border communication.
+          This work included assisting with information structure, localization, and internal coordination to
+          help organizations operate more effectively across regions.
+        </p>
+      </section>
+
+      <section class="project-card">
+        <h3>Events, Festivals &amp; Live Production Support</h3>
+        <p>
+          Sam assisted in the production and coordination of large-scale cultural events, including festivals,
+          pageant-related projects, and international live productions. His involvement focused on logistics
+          support, documentation, backstage operations, and coordination between production teams working
+          in different countries and institutional settings.
+        </p>
+      </section>
+
+      <section class="project-card">
+        <h3>Environmental &amp; Community-Based Project Support</h3>
+        <p>
+          He also supported cross-border environmental and humanitarian initiatives, coordinating projects
+          that connected Japanese nonprofit organizations with local public-sector and civil-society
+          stakeholders in Southeast Asia. These activities included support for reforestation efforts and
+          disaster-relief-related initiatives, with Sam focusing on communication support, organizational
+          coordination, and practical assistance at the project level.
+        </p>
+      </section>
+
+      <section class="project-card">
+        <h3>Corporate &amp; Advertising Production Support</h3>
+        <p>
+          Sam supported advertising and production-related projects involving Japanese corporations
+          operating overseas. He assisted production teams working on local advertising initiatives in
+          Southeast Asia, supporting coordination between Japanese corporate stakeholders and local
+          creative and operational teams—centering on communication support, on-site coordination,
+          and bridging differences in working styles and expectations.
+        </p>
+      </section>
+    </div>
+
+    <div class="prose closing">
+      <p>
+        Across these projects, Sam consistently worked in roles that required navigating complexity
+        between organizations from different countries and sectors. This period shaped his approach
+        to organizational operations and co-founder-style support in later years, emphasizing
+        structure, execution, and continuity over visibility or personal attribution.
+      </p>
+    </div>
+
+    <p class="note">
+      For updated professional information, please refer to LinkedIn.
+    </p>
+  </article>
+
+  <style>
+    .page-header {
+      margin-bottom: 2rem;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      font-weight: 400;
+      margin: 0;
+      color: var(--text);
+    }
+
+    .page-header .lead {
+      margin: 0.5rem 0 0;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    .prose {
+      max-width: 60ch;
+    }
+
+    .prose p {
+      margin: 0 0 1rem;
+    }
+
+    .intro {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      margin: 0 0 1.25rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+    }
+
+    .project-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+      color: var(--text);
+    }
+
+    .project-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .closing {
+      margin-bottom: 1.5rem;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: var(--muted-light);
+    }
+
+    @media (max-width: 720px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</BaseLayout>
