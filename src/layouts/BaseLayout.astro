@@ -148,21 +148,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://samonishi.c
         width: min(100% - 2rem, var(--maxw));
         margin-inline: auto;
         padding: 1.25rem 0;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.75rem;
+        text-align: center;
         font-size: 0.875rem;
         color: var(--muted);
-      }
-
-      .footer a {
-        color: var(--muted);
-      }
-
-      .footer a:hover {
-        color: var(--text);
       }
 
       @media (max-width: 640px) {
@@ -193,7 +181,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://samonishi.c
       <footer class="footer-wrap">
         <div class="footer">
           <span>&copy; 2009 Sam Onishi</span>
-          <a href="mailto:contact@samonishi.com">contact@samonishi.com</a>
         </div>
       </footer>
     </div>
